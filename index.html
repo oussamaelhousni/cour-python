@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cours Python : De Enigma à la Programmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .slide {
+        display: none;
+        min-height: 550px;
+        padding: 3rem 4rem;
+      }
+      .slide.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        animation: fadeInUp 0.3s ease-out;
+      }
+      pre {
+        background-color: #f4f4f5;
+        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        white-space: pre-wrap;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .slide {
+          padding: 2rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-100 flex flex-col items-center justify-center min-h-screen p-4"
+  >
+    <div
+      id="presentation"
+      class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+    >
+      <!-- Slides Container -->
+      <div id="slides-container" class="flex-grow">
+        <!-- SLIDE 1: TITRE -->
+        <div
+          class="slide text-center bg-gradient-to-br from-yellow-400 via-yellow-500 to-blue-900 text-slate-900"
+        >
+          <div
+            class="flex items-center justify-center gap-4 mb-8 bg-black/10 px-6 py-3 rounded-2xl mx-auto shadow-lg border border-white/40"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/0/05/Logo_ofppt.png"
+              alt="Logo OFPPT"
+              class="w-20 h-20 rounded-xl bg-white shadow-lg p-2 border border-white/60"
+            />
+            <div class="flex items-center gap-3">
+              <span class="text-white font-semibold tracking-wide"
+                >Python & Histoire de l'Informatique</span
+              >
+            </div>
+          </div>
+
+          <h1
+            class="text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-xl mb-3 text-slate-900"
+          >
+            De la machine Enigma à Python 🐍
+          </h1>
+
+          <p class="text-2xl font-medium opacity-95 mb-6">
+            Comprendre la machine pour mieux programmer
+          </p>
+
+          <p
+            class="text-lg font-light tracking-wide bg-black/10 text-slate-900 px-4 py-2 rounded-lg backdrop-blur-sm shadow-sm inline-block"
+          >
+            <span class="font-semibold text-blue-900">Formateur :</span>
+            Oussama Elhousni
+          </p>
+        </div>
+
+        <!-- ==================== -->
+        <!-- PARTIE 0 : HISTOIRE  -->
+        <!-- ==================== -->
+
+        <!-- SLIDE 2: Pourquoi parler d’histoire ? -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-4">
+            Pourquoi parler d’histoire avant Python ?
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Avant d’écrire une ligne de Python, il est important de comprendre :
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+            <li><b>Pourquoi</b> les ordinateurs ont été inventés.</li>
+            <li><b>Comment</b> ils fonctionnent vraiment (CPU, RAM, bus…).</li>
+            <li>
+              <b>Pourquoi</b> ils utilisent des 0 et 1, et pas des chiffres
+              “classiques”.
+            </li>
+            <li>
+              <b>Ce qu’est un programme</b> dans la vraie vie (pas juste du
+              texte dans VS Code).
+            </li>
+          </ul>
+          <p class="mt-4 text-lg text-emerald-600 font-semibold">
+            🎯 Objectif : voir le lien clair entre
+            <b>Enigma → Turing → Von Neumann → Python</b>.
+          </p>
+        </div>
+
+        <!-- SLIDE 3: Enigma : le contexte -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Enigma : au cœur de la cryptographie
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            <b>Enigma</b> est une machine de chiffrement utilisée par l’armée
+            allemande avant et pendant la Seconde Guerre mondiale.
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+            <li>
+              <b>Pourquoi ?</b> Protéger les messages militaires (ordres,
+              positions, sous-marins…)
+            </li>
+            <li>
+              <b>Comment ?</b> Chaque lettre est transformée en une autre grâce
+              à des rotors.
+            </li>
+            <li>
+              <b>Problème pour les Alliés :</b> sans la clé, les messages sont
+              illisibles.
+            </li>
+          </ul>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bundesarchiv_Bild_183-2007-0705-502%2C_Chiffriermaschine_%22Enigma%22.jpg/500px-Bundesarchiv_Bild_183-2007-0705-502%2C_Chiffriermaschine_%22Enigma%22.jpg"
+            alt="Machine Enigma"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 4: Logique pour casser Enigma -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Casser Enigma : une question de logique
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Enigma était très complexe. Pour la casser, il fallait :
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-3">
+            <li>
+              Tester automatiquement <b>des milliers de configurations</b>.
+            </li>
+            <li>
+              Utiliser des <b>mots probables</b> (“Heil Hitler”, météo, formules
+              standard).
+            </li>
+            <li>Éliminer les configurations impossibles par pure logique.</li>
+          </ul>
+          <p class="text-lg text-slate-700">
+            C’est là qu’intervient l’idée d’<b>algorithme</b> : une suite
+            d’étapes systématiques qu’une machine peut suivre.
+          </p>
+          <img
+            src="https://www.apprendre-en-ligne.net/crypto/Enigma/principe_fr.jpg"
+            style="height: 400px; aspect-ratio: 16/9; object-fit: contain"
+            alt="Logique de cassage d'Enigma"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 5: Alan Turing -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">Alan Turing</h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Alan Turing (1912–1954) est un mathématicien britannique et un des
+            pères de l’informatique.
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+            <li>A travaillé à Bletchley Park pour casser Enigma.</li>
+            <li>A inventé le concept de <b>machine universelle</b>.</li>
+            <li>
+              A montré qu’une même machine peut exécuter
+              <b>n’importe quel programme</b>.
+            </li>
+          </ul>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Alan_turing_header.jpg/500px-Alan_turing_header.jpg"
+            style="height: 300px; aspect-ratio: 3/4"
+            alt="Portrait Alan Turing"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 6: Bombe de Turing -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            La “Bombe” : machine pour casser Enigma
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Pour automatiser la recherche de clés, Turing et son équipe ont
+            conçu une machine électromécanique appelée <b>Bombe</b>.
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>Simule plusieurs Enigma en parallèle.</li>
+            <li>Teste rapidement des milliers de réglages.</li>
+            <li>Élimine les configurations incohérentes.</li>
+          </ul>
+          <p class="text-lg text-slate-700">
+            🔑 Idée clé : un raisonnement humain devient une suite d’opérations
+            répétitives → <b>programme</b>.
+          </p>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bombe-rebuild.jpg/1280px-Bombe-rebuild.jpg"
+            style="height: 400px; aspect-ratio: 16/9"
+            alt="Bombe de Turing"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 7: Machine de Turing -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Machine de Turing : l’idée d’ordinateur
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Turing formalise une machine abstraite, très simple, mais capable de
+            calculer tout ce qui est calculable.
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>Une <b>bande</b> infinie : mémoire.</li>
+            <li>
+              Une <b>tête de lecture/écriture</b> : lit & écrit des symboles.
+            </li>
+            <li>Un <b>état interne</b> : position du “cerveau”.</li>
+            <li>Un <b>tableau de règles</b> : le programme.</li>
+          </ul>
+          <video
+            src="/turing-machine.mp4"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+            controls
+          ></video>
+        </div>
+
+        <!-- SLIDE 8: Von Neumann architecture -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Architecture de von Neumann
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Après la guerre, l’architecture de <b>von Neumann</b> devient la
+            base des ordinateurs modernes.
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li><b>CPU</b> : exécute les instructions.</li>
+            <li><b>RAM</b> : stocke données + programmes.</li>
+            <li><b>Entrées</b> : clavier, souris, réseau…</li>
+            <li><b>Sorties</b> : écran, imprimante, fichiers…</li>
+            <li><b>Bus</b> : “autoroute” qui relie le tout.</li>
+          </ul>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Von_Neumann_architecture.svg/langfr-330px-Von_Neumann_architecture.svg.png"
+            alt="Schéma Von Neumann"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 9: CPU en détail -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            CPU : le “cerveau” de l’ordinateur
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Le <b>CPU (Central Processing Unit)</b> exécute des instructions
+            très simples, mais extrêmement rapidement.
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li><b>ALU</b> : unités de calcul (addition, comparaison…).</li>
+            <li><b>Unités de contrôle</b> : décodent les instructions.</li>
+            <li><b>Registres</b> : petites mémoires ultra rapides.</li>
+            <li><b>Cycle :</b> Fetch → Decode → Execute.</li>
+          </ul>
+          <div class="flex gap-4 justify-center">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeS9NSVKRxQQ8xrzr_KVMbQALCFRGcE10PAw&s"
+              alt="Photo CPU"
+              class="mt-4 rounded-xl shadow-lg"
+            />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJhlY6j4gPNmf55q44GMSigWwPitybdaHisA&s"
+              alt="Photo CPU"
+              class="mt-4 rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
+
+        <!-- SLIDE 10: RAM en détail -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            RAM : la mémoire de travail
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            La <b>RAM</b> (mémoire vive) stocke temporairement :
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>Les programmes en cours d’exécution (dont Python).</li>
+            <li>Les données manipulées (variables, tableaux…).</li>
+          </ul>
+          <p class="text-lg text-slate-700">
+            Quand tu éteins la machine, la RAM est vide. Le disque (SSD/HDD)
+            garde les fichiers sur le long terme.
+          </p>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Swissbit_2GB_PC2-5300U-555.jpg/500px-Swissbit_2GB_PC2-5300U-555.jpg"
+            alt="Photo RAM"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 11: Bus & entrées / sorties -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Bus & entrées/sorties
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Le <b>bus</b> est un ensemble de fils qui transportent :
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>Les adresses (vers quelle cellule mémoire aller).</li>
+            <li>Les données (valeurs lues/écrites).</li>
+            <li>Les signaux de contrôle.</li>
+          </ul>
+          <p class="text-lg text-slate-700">
+            Les périphériques (écran, clavier, disque, réseau…) passent aussi
+            par des bus pour dialoguer avec le CPU.
+          </p>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/PCI-E_%26_PCI_slots_on_DFI_LanParty_nF4_SLI-DR_20050531.jpg/500px-PCI-E_%26_PCI_slots_on_DFI_LanParty_nF4_SLI-DR_20050531.jpg"
+            alt="Bus système"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 12: Pourquoi binaire ? -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Pourquoi les ordinateurs utilisent-ils du binaire ?
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Au niveau physique, les circuits électroniques sont plus fiables
+            avec seulement <b>deux états</b> :
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>Pas de tension ⇒ 0</li>
+            <li>Tension présente ⇒ 1</li>
+          </ul>
+          <p class="text-lg text-slate-700">
+            Deux états = logique simple = circuits plus robustes. ➜ Le binaire
+            est un <b>compromis parfait</b> entre simplicité et puissance.
+          </p>
+          <img
+            src="/python.png"
+            alt="Schéma binaire"
+            class="mx-auto mt-4 rounded-xl shadow-lg max-w-[450px]"
+          />
+        </div>
+
+        <!-- SLIDE 13: Transistors & portes logiques -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Transistors & portes logiques
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Le <b>transistor</b> (inventé fin des années 1940) est un
+            interrupteur électronique minuscule.
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>0 = courant bloqué.</li>
+            <li>1 = courant passe.</li>
+            <li>
+              En combinant des transistors, on crée des
+              <b>portes logiques</b> (AND, OR, NOT...).
+            </li>
+          </ul>
+          <p class="text-lg text-slate-700">
+            Les CPU modernes contiennent des <b>milliers de millions</b> de
+            transistors organisés en circuits.
+          </p>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/AND_ANSI_Labelled.svg/240px-AND_ANSI_Labelled.svg.png"
+            alt="Transistors et portes logiques"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 14: Qu’est-ce qu’un programme ? -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Qu’est-ce qu’un programme ?
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Un programme, c’est une <b>suite d’instructions ordonnées</b> que
+            l’ordinateur suit, pas à pas.
+          </p>
+          <p class="text-lg text-slate-700 mb-2">Exemples du monde réel :</p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+            <li><b>Recette de cuisine</b> : une liste d’étapes à suivre.</li>
+            <li><b>GPS</b> : calcule un chemin, étape par étape.</li>
+            <li>
+              <b>Distributeur de tickets</b> : lire l’input → vérifier →
+              décider.
+            </li>
+            <li>
+              <b>Application bancaire</b> : vérifier solde, appliquer règles,
+              enregistrer.
+            </li>
+          </ul>
+          <p class="mt-3 text-lg text-emerald-600 font-semibold">
+            🧠 Un programme Python = une manière de décrire ces étapes dans un
+            langage que la machine comprend (via des couches).
+          </p>
+        </div>
+
+        <!-- ==================== -->
+        <!-- PYTHON INTRO & INSTALL -->
+        <!-- ==================== -->
+
+        <!-- SLIDE 15: Python : c’est quoi ? -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Python : c’est quoi ?
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Python est un <b>langage de programmation</b> :
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+            <li>Lisible, proche de l’anglais.</li>
+            <li>Multi-usage : web, data, IA, scripts, automation…</li>
+            <li>
+              Très utilisé dans l’industrie, la recherche et l’enseignement.
+            </li>
+          </ul>
+          <img
+            src="https://www.python.org/static/img/psf-logo.png"
+            alt="Logo Python"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 16: Interprété vs compilé -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Langages interprétés vs compilés
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Un programme doit toujours finir en
+            <b>instructions machine</b> (0/1).
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>
+              <b>Langage compilé</b> (C, C++…) ➜ un
+              <b>compilateur</b> transforme tout le code source en binaire avant
+              l’exécution.
+            </li>
+            <li>
+              <b>Langage interprété</b> (Python, JavaScript…) ➜ un
+              <b>interpréteur</b> lit le code ligne par ligne et l’exécute.
+            </li>
+          </ul>
+          <p class="text-lg text-slate-700">
+            Python classique (CPython) :
+            <b>source .py → bytecode → machine virtuelle Python → CPU</b>.
+          </p>
+        </div>
+
+        <!-- SLIDE 17: Installer Python -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Installer Python (PC)
+          </h2>
+          <ol class="list-decimal pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>
+              Aller sur le site officiel :
+              <code>https://www.python.org/downloads/</code>
+            </li>
+            <li>Télécharger la version stable (3.xx).</li>
+            <li>
+              Sous Windows : cocher <b>“Add Python to PATH”</b> pendant
+              l’installation.
+            </li>
+            <li>
+              Vérifier dans le terminal :
+              <pre><code>python --version
+# ou
+python3 --version</code></pre>
+            </li>
+          </ol>
+          <p class="mt-3 text-lg text-slate-700">
+            Pour écrire du code : VS Code, PyCharm, ou même l’IDLE livré avec
+            Python.
+          </p>
+        </div>
+
+        <!-- SLIDE 18: Premier programme -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Premier programme Python
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Crée un fichier <code>bonjour.py</code> :
+          </p>
+          <pre><code>print("Bonjour OFPPT !")</code></pre>
+          <p class="text-lg text-slate-700 mb-2">
+            Dans le terminal, depuis le dossier du fichier :
+          </p>
+          <pre><code>python bonjour.py      # ou python3 bonjour.py</code></pre>
+          <p class="mt-3 text-lg text-slate-700">
+            La fonction <code>print()</code> envoie du texte vers la sortie
+            standard (la console).
+          </p>
+        </div>
+
+        <!-- ==================== -->
+        <!-- VARIABLES & MÉMOIRE  -->
+        <!-- ==================== -->
+
+        <!-- SLIDE 19: Variables : idée générale -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Variables : donner un nom à une valeur
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Une variable est un <b>nom</b> qui référence une
+            <b>valeur en mémoire</b>.
+          </p>
+          <pre><code>age = 25
+nom = "Oussama"
+pi = 3.14</code></pre>
+          <p class="mt-2 text-lg text-slate-700">
+            En mémoire, on peut imaginer des “boîtes” :
+          </p>
+          <img
+            src="/memory.jpg"
+            alt="Représentation de variables en mémoire"
+            class="mx-auto mt-4 rounded-xl shadow-lg"
+          />
+        </div>
+
+        <!-- SLIDE 20: Variables & mémoire (vision un peu plus vraie) -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Comment Python voit les variables
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">En réalité, en Python :</p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700 mb-2">
+            <li>Le nom (ex: <code>age</code>) est une “étiquette”.</li>
+            <li>
+              La valeur (ex: <code>25</code>) est un objet stocké en mémoire.
+            </li>
+            <li>Le nom “pointe” vers l’objet.</li>
+          </ul>
+          <pre><code>age = 25
+autre_age = age
+
+age = 30
+print(autre_age)  # toujours 25</code></pre>
+          <p class="mt-2 text-lg text-slate-700">
+            👉 On change la référence de <code>age</code>, pas l’objet initial.
+          </p>
+        </div>
+
+        <!-- SLIDE 21: Types simples avec exemples -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Types simples en Python
+          </h2>
+          <pre><code>age = 21              # int
+temperature = 19.7   # float
+nom = "OFPPT"        # str
+est_formateur = True # bool</code></pre>
+          <p class="mt-2 text-lg text-slate-700">
+            Python peut afficher le type :
+          </p>
+          <pre><code>print(type(age))           # &lt;class 'int'&gt;
+print(type(temperature))   # &lt;class 'float'&gt;
+print(type(nom))           # &lt;class 'str'&gt;</code></pre>
+          <p class="mt-3 text-lg text-slate-700">
+            🧠 Ces types seront utilisés partout : conditions, boucles,
+            fichiers, etc.
+          </p>
+        </div>
+
+        <!-- ==================== -->
+        <!-- CONDITIONS           -->
+        <!-- ==================== -->
+
+        <!-- SLIDE 22: Pourquoi des conditions ? -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Pourquoi utilisons-nous des conditions ?
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Dans la vie réelle, on prend des décisions en fonction d’une
+            situation :
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+            <li>Si le feu est rouge ➜ tu t’arrêtes.</li>
+            <li>Si ton solde est suffisant ➜ le paiement est accepté.</li>
+            <li>Si l’élève a 10 ou plus ➜ il est admis.</li>
+          </ul>
+          <p class="mt-3 text-lg text-slate-700">
+            Un programme doit faire pareil : adapter son comportement selon les
+            données.
+          </p>
+        </div>
+
+        <!-- SLIDE 23: if / elif / else -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            if / elif / else en Python
+          </h2>
+          <pre><code>note = float(input("Note sur 20 : "))
+
+if note >= 16:
+    print("Très bien")
+elif note >= 14:
+    print("Bien")
+elif note >= 10:
+    print("Passable")
+else:
+    print("Insuffisant")</code></pre>
+          <p class="mt-3 text-lg text-slate-700">
+            ⚠️ L’indentation (les espaces avant les lignes) est
+            <b>obligatoire</b> en Python.
+          </p>
+        </div>
+
+        <!-- SLIDE 24: Opérateur ternaire -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Opérateur ternaire : condition en une ligne
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Pour des conditions simples, on peut écrire :
+          </p>
+          <pre><code>age = int(input("Âge : "))
+
+message = "Majeur" if age >= 18 else "Mineur"
+print(message)</code></pre>
+          <p class="mt-3 text-lg text-slate-700">
+            🔹 Forme générale :
+            <code>valeur_si_vrai if condition else valeur_si_faux</code>
+          </p>
+        </div>
+
+        <!-- SLIDE 25: match / case (Python 3.10+) -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            match / case : plusieurs cas possibles
+          </h2>
+          <p class="text-lg text-slate-700 mb-2">
+            Depuis Python 3.10, on peut utiliser <code>match</code> pour gérer
+            plusieurs cas facilement.
+          </p>
+          <pre><code>commande = input("Commande (start/stop/pause) : ")
+
+match commande:
+    case "start":
+        print("Démarrage...")
+    case "stop":
+        print("Arrêt.")
+    case "pause":
+        print("Pause en cours.")
+    case _:
+        print("Commande inconnue.")</code></pre>
+          <p class="mt-3 text-lg text-slate-700">
+            Très pratique pour des menus, types de messages, rôles utilisateurs,
+            etc.
+          </p>
+        </div>
+
+        <!-- ==================== -->
+        <!-- EXERCICES CONDITIONS -->
+        <!-- ==================== -->
+
+        <!-- SLIDE 26: 6 exercices (facile → difficile) -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-4">
+            6 exercices sur les conditions (du plus simple au plus difficile)
+          </h2>
+          <ol class="list-decimal pl-6 space-y-3 text-xl text-slate-700">
+            <li>
+              🟢 <b>Pair ou impair</b>
+              Demander un nombre, afficher s’il est pair ou impair.
+            </li>
+            <li>
+              🟢 <b>Majeur ou mineur</b>
+              Demander l’âge, afficher “Majeur” ou “Mineur”.
+            </li>
+            <li>
+              🟡 <b>Plus grand de deux nombres</b>
+              Demander 2 nombres, afficher le plus grand (ou égalité).
+            </li>
+            <li>
+              🟡 <b>Tarif cinéma</b>
+              Selon l’âge : &lt; 12 ans → tarif enfant, 12–25 → jeune, 26–60 →
+              normal, &gt; 60 → senior.
+            </li>
+            <li>
+              🔴 <b>Login simple</b>
+              Stocker un login/mot de passe dans le code, demander à
+              l’utilisateur, vérifier si les deux correspondent.
+            </li>
+            <li>
+              🔴 <b>Menu avec match</b> Afficher un menu : 1 = afficher
+              “Bonjour”, 2 = afficher la date (fake), 3 = quitter. Utiliser
+              <code>match</code> pour traiter le choix.
+            </li>
+          </ol>
+          <p class="mt-4 text-lg text-emerald-600 font-semibold">
+            👉 Ces exercices utilisent seulement : entrées, variables,
+            conditions, ternaire, match.
+          </p>
+        </div>
+
+        <!-- SLIDE 27: Fin -->
+        <div
+          class="slide text-center bg-gradient-to-br from-yellow-300 via-yellow-400 to-blue-900 text-slate-900"
+        >
+          <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+            Merci pour votre attention 🐍
+          </h2>
+          <p class="text-2xl mb-4">
+            Questions ? Démo en live ? Place à la pratique.
+          </p>
+          <p
+            class="inline-block mt-2 px-5 py-2 rounded-full bg-black/10 text-lg font-medium shadow"
+          >
+            “Comprendre l’histoire et la machine pour mieux coder.”
+          </p>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div
+        id="navigation"
+        class="bg-slate-50 border-t border-slate-200 p-4 flex justify-between items-center"
+      >
+        <button
+          id="prevBtn"
+          class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          Précédent
+        </button>
+        <div
+          id="slide-counter"
+          class="text-slate-600 text-sm font-medium"
+        ></div>
+        <button
+          id="nextBtn"
+          class="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          Suivant
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <footer
+        class="p-3 text-center text-sm text-slate-500 bg-slate-50 border-t border-slate-200"
+      >
+        Fait avec ❤️ par Oussama Elhousni
+      </footer>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const slideCounter = document.getElementById("slide-counter");
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.remove("active");
+          if (i === index) {
+            slide.classList.add("active");
+          }
+        });
+
+        slideCounter.textContent = `Diapositive ${
+          index + 1
+        } sur ${totalSlides}`;
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === totalSlides - 1;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        if (currentSlide > 0) {
+          currentSlide--;
+          showSlide(currentSlide);
+        }
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if (currentSlide < totalSlides - 1) {
+          currentSlide++;
+          showSlide(currentSlide);
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+          prevBtn.click();
+        } else if (e.key === "ArrowRight") {
+          nextBtn.click();
+        }
+      });
+
+      // Afficher uniquement une slide au début
+      showSlide(currentSlide);
+    </script>
+  </body>
+</html>
