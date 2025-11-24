@@ -762,7 +762,254 @@ match commande:
           </p>
         </div>
       </div>
+<!-- SLIDE : Les chaînes de caractères -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Les chaînes de caractères (strings)
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Une <b>string</b> est une suite de caractères : lettres, chiffres,
+            symboles.
+          </p>
 
+          <pre><code>nom = "OFPPT"
+phrase = "Bonjour tout le monde"
+chiffres = "12345"</code></pre>
+
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+            <li>Indexation : accéder à un caractère → <code>nom[0]</code></li>
+            <li>Longueur : <code>len(nom)</code></li>
+            <li>Concaténation : <code>nom + " Maroc"</code></li>
+            <li>Répétition : <code>"-" * 20</code></li>
+          </ul>
+
+          <pre><code>texte = "Python"
+print(texte[0])   # P
+print(len(texte)) # 6</code></pre>
+        </div>
+
+        <!-- SLIDE : Les listes -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Les listes (lists)
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Une <b>liste</b> contient plusieurs valeurs, dans un ordre précis.
+          </p>
+
+          <pre><code>nombres = [10, 20, 30, 40]
+noms = ["Ali", "Sara", "Youssef"]
+melange = [10, "Python", True]</code></pre>
+
+          <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+            <li>Indexation : <code>nombres[1]</code></li>
+            <li>Longueur : <code>len(nombres)</code></li>
+            <li>Modifier un élément : <code>nombres[0] = 99</code></li>
+            <li>Ajouter : <code>nombres.append(50)</code></li>
+            <li>Supprimer : <code>nombres.remove(30)</code></li>
+          </ul>
+
+          <pre><code>fruits = ["pomme", "banane", "orange"]
+fruits.append("kiwi")
+print(fruits)</code></pre>
+        </div>
+
+        <!-- SLIDE : Les boucles -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Les boucles (loops)
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Les boucles servent à <b>répéter une action</b> automatiquement.
+          </p>
+
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-slate-800">
+            Boucle for
+          </h3>
+          <pre><code>for i in range(5):
+    print("Hello", i)</code></pre>
+
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-slate-800">
+            Boucle sur une liste
+          </h3>
+          <pre><code>fruits = ["pomme", "banane", "kiwi"]
+
+for f in fruits:
+    print(f)</code></pre>
+
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-slate-800">
+            Boucle sur une string
+          </h3>
+          <pre><code>texte = "Python"
+
+for c in texte:
+    print(c)</code></pre>
+        </div>
+
+        <!-- SLIDE : Relation entre listes, strings et boucles -->
+        <div class="slide">
+          <h2 class="text-4xl font-bold text-slate-800 mb-3">
+            Relation entre listes, strings et boucles
+          </h2>
+          <p class="text-lg text-slate-700 mb-3">
+            Les 3 concepts sont liés : une boucle peut parcourir une string ou
+            une liste, et on peut convertir une string en liste.
+          </p>
+
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-slate-800">
+            1. Parcourir une string
+          </h3>
+          <pre><code>for lettre in "Python":
+    print(lettre)</code></pre>
+
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-slate-800">
+            2. Transformer une string en liste
+          </h3>
+          <pre><code>texte = "Python"
+liste_caractères = list(texte)
+print(liste_caractères)</code></pre>
+
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-slate-800">
+            3. Parcourir une liste
+          </h3>
+          <pre><code>fruits = ["pomme", "kiwi", "orange"]
+
+for f in fruits:
+    print(f.upper())</code></pre>
+
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-slate-800">
+            4. Construire une string à partir d'une liste
+          </h3>
+          <pre><code>lettres = ["P", "y", "t", "h", "o", "n"]
+mot = "".join(lettres)
+print(mot)</code></pre>
+
+          <p class="mt-4 text-lg text-emerald-600 font-semibold">
+            🎯 Idée clé : Les boucles permettent d'explorer des listes et des
+            strings, et Python permet facilement de convertir entre les deux.
+          </p>
+        </div>
+      </div>
+      <!-- SLIDE : Exercices sur les listes -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Exercices sur les listes (lists)
+        </h2>
+
+        <ol class="list-decimal pl-6 space-y-3 text-xl text-slate-700">
+          <li>
+            🟢 <b>Somme d’une liste</b><br />
+            Afficher la somme des nombres dans <code>[10, 5, 3, 2]</code>.
+          </li>
+
+          <li>
+            🟢 <b>Afficher chaque élément</b><br />
+            Parcourir une liste de fruits et les afficher.
+          </li>
+
+          <li>
+            🟡 <b>Maximum de la liste</b><br />
+            Trouver le plus grand nombre d’une liste sans utiliser
+            <code>max()</code>.
+          </li>
+
+          <li>
+            🟡 <b>Liste filtrée</b><br />
+            À partir d’une liste, créer une nouvelle liste contenant uniquement
+            les nombres pairs.
+          </li>
+
+          <li>
+            🔴 <b>Liste de mots → liste de longueurs</b><br />
+            Exemple : ["python", "code"] → [6, 4]
+          </li>
+        </ol>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Ces exercices entraînent : boucles, indexation, append(),
+          conditions.
+        </p>
+      </div>
+      <!-- SLIDE : Exercices sur les listes -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Exercices sur les listes (lists)
+        </h2>
+
+        <ol class="list-decimal pl-6 space-y-3 text-xl text-slate-700">
+          <li>
+            🟢 <b>Somme d’une liste</b><br />
+            Afficher la somme des nombres dans <code>[10, 5, 3, 2]</code>.
+          </li>
+
+          <li>
+            🟢 <b>Afficher chaque élément</b><br />
+            Parcourir une liste de fruits et les afficher.
+          </li>
+
+          <li>
+            🟡 <b>Maximum de la liste</b><br />
+            Trouver le plus grand nombre d’une liste sans utiliser
+            <code>max()</code>.
+          </li>
+
+          <li>
+            🟡 <b>Liste filtrée</b><br />
+            À partir d’une liste, créer une nouvelle liste contenant uniquement
+            les nombres pairs.
+          </li>
+
+          <li>
+            🔴 <b>Liste de mots → liste de longueurs</b><br />
+            Exemple : ["python", "code"] → [6, 4]
+          </li>
+        </ol>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Ces exercices entraînent : boucles, indexation, append(),
+          conditions.
+        </p>
+      </div>
+      <!-- SLIDE : Exercices sur les listes -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Exercices sur les listes (lists)
+        </h2>
+
+        <ol class="list-decimal pl-6 space-y-3 text-xl text-slate-700">
+          <li>
+            🟢 <b>Somme d’une liste</b><br />
+            Afficher la somme des nombres dans <code>[10, 5, 3, 2]</code>.
+          </li>
+
+          <li>
+            🟢 <b>Afficher chaque élément</b><br />
+            Parcourir une liste de fruits et les afficher.
+          </li>
+
+          <li>
+            🟡 <b>Maximum de la liste</b><br />
+            Trouver le plus grand nombre d’une liste sans utiliser
+            <code>max()</code>.
+          </li>
+
+          <li>
+            🟡 <b>Liste filtrée</b><br />
+            À partir d’une liste, créer une nouvelle liste contenant uniquement
+            les nombres pairs.
+          </li>
+
+          <li>
+            🔴 <b>Liste de mots → liste de longueurs</b><br />
+            Exemple : ["python", "code"] → [6, 4]
+          </li>
+        </ol>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Ces exercices entraînent : boucles, indexation, append(),
+          conditions.
+        </p>
+      </div>
       <!-- Navigation -->
       <div
         id="navigation"
