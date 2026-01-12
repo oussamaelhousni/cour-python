@@ -761,8 +761,8 @@ match commande:
             “Comprendre l’histoire et la machine pour mieux coder.”
           </p>
         </div>
-      </div>
-<!-- SLIDE : Les chaînes de caractères -->
+
+        <!-- SLIDE : Les chaînes de caractères -->
         <div class="slide">
           <h2 class="text-4xl font-bold text-slate-800 mb-3">
             Les chaînes de caractères (strings)
@@ -1010,6 +1010,1201 @@ print(mot)</code></pre>
           conditions.
         </p>
       </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Les listes (lists) en Python
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Une liste est une structure qui permet de stocker plusieurs valeurs
+          dans un ordre précis.
+        </p>
+
+        <pre><code>notes = [12, 15, 18, 10]
+noms = ["Ali", "Sara", "Omar"]
+mix = [10, "python", True]</code></pre>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Ordonnée</li>
+          <li>Modifiable (mutable)</li>
+          <li>Accepte des doublons</li>
+          <li>Types mélangés autorisés</li>
+        </ul>
+      </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Manipulation des listes
+        </h2>
+
+        <h3 class="text-2xl font-semibold mb-2">Indexation</h3>
+        <pre><code>fruits = ["pomme", "kiwi", "orange"]
+print(fruits[0])   # pomme
+print(fruits[-1])  # orange</code></pre>
+
+        <h3 class="text-2xl font-semibold mb-2">Modification</h3>
+        <pre><code>fruits[1] = "banane"
+print(fruits)</code></pre>
+
+        <h3 class="text-2xl font-semibold mb-2">Longueur</h3>
+        <pre><code>len(fruits)</code></pre>
+      </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Méthodes utiles pour les listes
+        </h2>
+
+        <pre><code>fruits = ["pomme", "banane"]</code></pre>
+
+        <ul class="list-disc pl-6 space-y-3 text-xl text-slate-700">
+          <li>
+            <code>append(x)</code> : ajoute à la fin
+            <pre><code>fruits.append("kiwi")</code></pre>
+          </li>
+
+          <li>
+            <code>insert(i, x)</code> : insère à la position voulue
+            <pre><code>fruits.insert(1, "orange")</code></pre>
+          </li>
+
+          <li>
+            <code>remove(x)</code> : supprime un élément
+            <pre><code>fruits.remove("pomme")</code></pre>
+          </li>
+
+          <li>
+            <code>pop(i)</code> : supprime par index et retourne la valeur
+            <pre><code>fruits.pop(0)</code></pre>
+          </li>
+
+          <li>
+            <code>sort()</code> : trie la liste
+            <pre><code>nombres = [4, 1, 9]
+nombres.sort()</code></pre>
+          </li>
+
+          <li>
+            <code>reverse()</code> : inverse la liste
+            <pre><code>nombres.reverse()</code></pre>
+          </li>
+        </ul>
+      </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Méthodes utiles pour les listes
+        </h2>
+
+        <pre><code>fruits = ["pomme", "banane"]</code></pre>
+
+        <ul class="list-disc pl-6 space-y-3 text-xl text-slate-700">
+          <li>
+            <code>append(x)</code> : ajoute à la fin
+            <pre><code>fruits.append("kiwi")</code></pre>
+          </li>
+
+          <li>
+            <code>insert(i, x)</code> : insère à la position voulue
+            <pre><code>fruits.insert(1, "orange")</code></pre>
+          </li>
+
+          <li>
+            <code>remove(x)</code> : supprime un élément
+            <pre><code>fruits.remove("pomme")</code></pre>
+          </li>
+
+          <li>
+            <code>pop(i)</code> : supprime par index et retourne la valeur
+            <pre><code>fruits.pop(0)</code></pre>
+          </li>
+
+          <li>
+            <code>sort()</code> : trie la liste
+            <pre><code>nombres = [4, 1, 9]
+nombres.sort()</code></pre>
+          </li>
+
+          <li>
+            <code>reverse()</code> : inverse la liste
+            <pre><code>nombres.reverse()</code></pre>
+          </li>
+        </ul>
+      </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Boucles et listes
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Une liste peut être parcourue facilement avec une boucle for.
+        </p>
+
+        <pre><code>fruits = ["pomme", "banane", "kiwi"]
+
+for f in fruits:
+    print(f)</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">
+          Utile pour afficher, filtrer, analyser, transformer des données.
+        </p>
+      </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Les dictionnaires (dictionaries)
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Un dictionnaire stocke des données sous la forme <b>clé : valeur</b>.
+        </p>
+
+        <pre><code>etudiant = {
+    "nom": "Omar",
+    "age": 21,
+    "filiere": "DEV"
+}</code></pre>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Clés uniques</li>
+          <li>Structure non ordonnée (logiquement)</li>
+          <li>Modifiable</li>
+        </ul>
+      </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Manipulation des dictionnaires
+        </h2>
+
+        <pre><code>etudiant = {"nom": "Omar", "age": 21}</code></pre>
+
+        <h3 class="text-2xl font-semibold mb-2">Accéder à une valeur</h3>
+        <pre><code>print(etudiant["nom"])
+print(etudiant.get("age"))</code></pre>
+
+        <h3 class="text-2xl font-semibold mb-2">Ajouter</h3>
+        <pre><code>etudiant["ville"] = "Casablanca"</code></pre>
+
+        <h3 class="text-2xl font-semibold mb-2">Modifier</h3>
+        <pre><code>etudiant["age"] = 22</code></pre>
+      </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Méthodes utiles pour les dictionnaires
+        </h2>
+
+        <pre><code>etudiant = {"nom": "Sara", "age": 20, "ville": "Rabat"}</code></pre>
+
+        <ul class="list-disc pl-6 space-y-3 text-xl text-slate-700">
+          <li>
+            <code>keys()</code> : liste des clés
+            <pre><code>print(etudiant.keys())</code></pre>
+          </li>
+
+          <li>
+            <code>values()</code> : liste des valeurs
+            <pre><code>print(etudiant.values())</code></pre>
+          </li>
+
+          <li>
+            <code>items()</code> : paires clé valeur
+            <pre><code>for cle, val in etudiant.items():
+    print(cle, val)</code></pre>
+          </li>
+
+          <li>
+            <code>pop(cle)</code> : supprime une entrée
+            <pre><code>etudiant.pop("ville")</code></pre>
+          </li>
+
+          <li>
+            <code>update()</code> : fusion ou modification
+            <pre><code>etudiant.update({"age": 25, "ville": "Fès"})</code></pre>
+          </li>
+        </ul>
+      </div>
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Boucles et dictionnaires
+        </h2>
+
+        <pre><code>etudiant = {"nom": "Ali", "age": 20, "ville": "Rabat"}
+
+for cle, valeur in etudiant.items():
+    print(cle, ":", valeur)</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">
+          Permet d’afficher ou analyser chaque information facilement.
+        </p>
+      </div>
+      <!-- ==================== -->
+      <!-- ENCAPSULATION (OOP) -->
+      <!-- ==================== -->
+
+      <!-- SLIDE : Encapsulation - Introduction -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Encapsulation : protéger les données
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          L’<b>encapsulation</b> est un principe de la Programmation Orientée
+          Objet qui consiste à :
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>
+            Regrouper <b>données (attributs)</b> et
+            <b>comportements (méthodes)</b>
+          </li>
+          <li>Empêcher l’accès direct aux données sensibles</li>
+          <li>Forcer l’utilisation de méthodes contrôlées</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          🎯 Objectif : éviter les erreurs et sécuriser les objets
+        </p>
+      </div>
+
+      <!-- SLIDE : Problème sans encapsulation -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Problème sans encapsulation
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Sans encapsulation, n’importe qui peut modifier les attributs
+          directement.
+        </p>
+
+        <pre><code>class Compte:
+    def __init__(self, solde):
+        self.solde = solde
+
+c = Compte(100)
+c.solde = -500   # ❌ solde invalide
+print(c.solde)</code></pre>
+
+        <p class="text-lg text-red-600 font-semibold mt-3">
+          ❌ Problème : aucune protection, aucune règle
+        </p>
+      </div>
+
+      <!-- SLIDE : Principe de l'encapsulation -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Principe de l’encapsulation
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          En Python, on utilise des <b>attributs privés</b> pour protéger les
+          données.
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Attribut public → accessible partout</li>
+          <li>Attribut privé → accessible uniquement via des méthodes</li>
+        </ul>
+
+        <pre><code>class Exemple:
+    def __init__(self):
+        self.public = 10
+        self.__prive = 20</code></pre>
+      </div>
+
+      <!-- SLIDE : Attribut privé (__nom) -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Attributs privés en Python
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Un attribut précédé de <code>__</code> devient <b>privé</b>.
+        </p>
+
+        <pre><code>class Personne:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.__age = age</code></pre>
+
+        <pre><code>p = Personne("Ali", 20)
+print(p.nom)      # OK
+print(p.__age)    # ❌ Erreur</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">
+          👉 Python empêche l’accès direct à <code>__age</code>
+        </p>
+      </div>
+
+      <!-- SLIDE : Pourquoi Python autorise encore l'accès (name mangling) -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Astuce : le name mangling
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          En interne, Python transforme les attributs privés :
+        </p>
+
+        <pre><code>print(p._Personne__age)</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">
+          ⚠️ Possible, mais <b>interdit par convention</b>
+        </p>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ On n’utilise jamais ça en pratique
+        </p>
+      </div>
+
+      <!-- SLIDE : Méthodes getter -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Getter : lire une valeur privée
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Un <b>getter</b> est une méthode qui permet de lire un attribut privé.
+        </p>
+
+        <pre><code>class Personne:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.__age = age
+
+    def get_age(self):
+        return self.__age</code></pre>
+
+        <pre><code>p = Personne("Sara", 22)
+print(p.get_age())</code></pre>
+      </div>
+
+      <!-- SLIDE : Méthodes setter -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Setter : modifier une valeur privée
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Un <b>setter</b> permet de modifier un attribut privé avec contrôle.
+        </p>
+
+        <pre><code>class Personne:
+    def __init__(self, age):
+        self.__age = age
+
+    def set_age(self, nouvel_age):
+        if nouvel_age >= 0:
+            self.__age = nouvel_age
+        else:
+            print("Âge invalide")</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">
+          ✔ Les règles sont centralisées dans la classe
+        </p>
+      </div>
+
+      <!-- SLIDE : Exemple réel - Compte bancaire -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Exemple réel : Compte bancaire
+        </h2>
+
+        <pre><code>class CompteBancaire:
+    def __init__(self, solde):
+        self.__solde = solde
+
+    def deposer(self, montant):
+        if montant > 0:
+            self.__solde += montant
+
+    def retirer(self, montant):
+        if montant <= self.__solde:
+            self.__solde -= montant
+        else:
+            print("Solde insuffisant")
+
+    def afficher(self):
+        print("Solde :", self.__solde)</code></pre>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          🔒 Impossible d’avoir un solde négatif
+        </p>
+      </div>
+
+      <!-- SLIDE : Bonnes pratiques -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Bonnes pratiques d’encapsulation
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Toujours rendre sensibles les données critiques</li>
+          <li>Utiliser des méthodes pour accéder aux données</li>
+          <li>Centraliser les règles métier dans la classe</li>
+          <li>Ne jamais modifier directement les attributs privés</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Code plus sûr, plus propre, plus professionnel
+        </p>
+      </div>
+
+      <!-- SLIDE : Résumé Encapsulation -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Résumé : Encapsulation
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Encapsulation = protection des données</li>
+          <li><code>__attribut</code> → privé</li>
+          <li>Getter → lire</li>
+          <li>Setter → modifier avec contrôle</li>
+          <li>Indispensable dans les projets réels</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          🧠 Sans encapsulation, la POO perd tout son sens
+        </p>
+      </div>
+      <!-- ==================== -->
+      <!-- HERITAGE (OOP) -->
+      <!-- ==================== -->
+
+      <!-- SLIDE : Héritage - Introduction -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Héritage : réutiliser le code
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          L’<b>héritage</b> permet à une classe enfant de <b>récupérer</b> les
+          attributs et méthodes d’une classe parent.
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Éviter la duplication de code</li>
+          <li>Faciliter la maintenance</li>
+          <li>Créer des relations logiques entre classes</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          🎯 Objectif : écrire moins de code, plus clair
+        </p>
+      </div>
+
+      <!-- SLIDE : Classe parent -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">Classe parent</h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          La classe parent contient les éléments communs.
+        </p>
+
+        <pre><code>class Personne:
+    def __init__(self, nom):
+        self.nom = nom
+
+    def se_presenter(self):
+        print("Je m'appelle", self.nom)</code></pre>
+      </div>
+
+      <!-- SLIDE : Classe enfant -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">Classe enfant</h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          La classe enfant hérite de la classe parent avec des parenthèses.
+        </p>
+
+        <pre><code>class Etudiant(Personne):
+    def __init__(self, nom, note):
+        self.nom = nom
+        self.note = note</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">✔ Etudiant hérite de Personne</p>
+      </div>
+
+      <!-- SLIDE : Utilisation de l’héritage -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Utilisation de l’héritage
+        </h2>
+
+        <pre><code>e = Etudiant("Sara", 15)
+
+e.se_presenter()
+print(e.note)</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">
+          👉 La méthode <code>se_presenter()</code> vient de la classe parent
+        </p>
+      </div>
+
+      <!-- SLIDE : super() -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          super() : appeler le parent
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          <code>super()</code> permet d’appeler le constructeur de la classe
+          parent.
+        </p>
+
+        <pre><code>class Etudiant(Personne):
+    def __init__(self, nom, note):
+        super().__init__(nom)
+        self.note = note</code></pre>
+
+        <p class="text-lg text-emerald-600 font-semibold mt-3">
+          ✔ Bonne pratique recommandée
+        </p>
+      </div>
+
+      <!-- SLIDE : Ajouter des méthodes spécifiques -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Méthodes spécifiques à l’enfant
+        </h2>
+
+        <pre><code>class Etudiant(Personne):
+    def __init__(self, nom, note):
+        super().__init__(nom)
+        self.note = note
+
+    def est_admis(self):
+        return self.note >= 10</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">
+          ✔ La classe enfant peut ajouter ses propres règles
+        </p>
+      </div>
+
+      <!-- SLIDE : Redéfinition de méthode -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Redéfinition de méthode
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Une classe enfant peut modifier le comportement d’une méthode du
+          parent.
+        </p>
+
+        <pre><code>class Etudiant(Personne):
+    def se_presenter(self):
+        print("Je suis étudiant et je m'appelle", self.nom)</code></pre>
+
+        <p class="text-lg text-slate-700 mt-3">
+          👉 La méthode du parent est remplacée
+        </p>
+      </div>
+
+      <!-- SLIDE : Exemple réel -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Exemple réel : Employé
+        </h2>
+
+        <pre><code>class Employe:
+    def __init__(self, nom, salaire):
+        self.nom = nom
+        self.salaire = salaire
+
+    def afficher(self):
+        print(self.nom, "-", self.salaire)</code></pre>
+
+        <pre><code>class Manager(Employe):
+    def __init__(self, nom, salaire, equipe):
+        super().__init__(nom, salaire)
+        self.equipe = equipe</code></pre>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ Manager est un Employe spécialisé
+        </p>
+      </div>
+
+      <!-- SLIDE : Résumé héritage -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Résumé : Héritage
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Une classe enfant hérite d’une classe parent</li>
+          <li>super() permet de réutiliser le constructeur parent</li>
+          <li>On peut ajouter ou redéfinir des méthodes</li>
+          <li>Le code devient plus clair et réutilisable</li>
+        </ul>
+      </div>
+      <!-- ==================== -->
+      <!-- POLYMORPHISME (OOP) -->
+      <!-- ==================== -->
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Polymorphisme : un même nom, plusieurs comportements
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Le <b>polymorphisme</b> est un principe fondamental de la
+          Programmation Orientée Objet.
+        </p>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Il permet d’utiliser <b>la même méthode</b> sur des objets différents,
+          avec un <b>résultat différent</b> selon l’objet.
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Même nom de méthode</li>
+          <li>Comportement différent</li>
+          <li>Code plus simple et plus flexible</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          🎯 Idée clé : on appelle la méthode, Python choisit la bonne version
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Exemple du monde réel
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Dans la vie réelle, plusieurs personnes peuvent <b>parler</b>, mais
+          chacune parle différemment.
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Un étudiant parle comme un étudiant</li>
+          <li>Un professeur parle comme un professeur</li>
+          <li>Un manager parle comme un manager</li>
+        </ul>
+
+        <p class="mt-3 text-lg text-slate-700">
+          En programmation, c’est exactement le même principe.
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Polymorphisme avec héritage
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Les classes enfants redéfinissent une méthode de la classe parent.
+        </p>
+
+        <pre><code>class Animal:
+    def parler(self):
+        print("L'animal fait un son")</code></pre>
+
+        <pre><code>class Chien(Animal):
+    def parler(self):
+        print("Le chien aboie")</code></pre>
+
+        <pre><code>class Chat(Animal):
+    def parler(self):
+        print("Le chat miaule")</code></pre>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Même méthode, résultats différents
+        </h2>
+
+        <pre><code>animaux = [Chien(), Chat(), Animal()]
+
+for a in animaux:
+    a.parler()</code></pre>
+
+        <pre><code># Résultat :
+# Le chien aboie
+# Le chat miaule
+# L'animal fait un son</code></pre>
+
+        <p class="mt-3 text-lg text-slate-700">
+          👉 On appelle <code>parler()</code> sans se soucier du type exact.
+        </p>
+
+        <p class="mt-2 text-lg text-emerald-600 font-semibold">
+          ✔ Python décide automatiquement
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Polymorphisme sans héritage
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          En Python, le type importe moins que la présence de la méthode.
+        </p>
+
+        <pre><code>class Voiture:
+    def avancer(self):
+        print("La voiture roule")</code></pre>
+
+        <pre><code>class Avion:
+    def avancer(self):
+        print("L'avion vole")</code></pre>
+
+        <pre><code>def deplacer(objet):
+    objet.avancer()</code></pre>
+
+        <pre><code>deplacer(Voiture())
+deplacer(Avion())</code></pre>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Duck typing expliqué simplement
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">Règle Python :</p>
+
+        <p class="text-xl font-semibold text-slate-800 mb-3">
+          “Si ça se comporte comme un canard, alors c’est acceptable”
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Pas besoin d’héritage obligatoire</li>
+          <li>La méthode existe, le code fonctionne</li>
+          <li>Très puissant mais demande de la discipline</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Cas réel : système de paiement
+        </h2>
+
+        <pre><code>class Paiement:
+    def payer(self):
+        pass</code></pre>
+
+        <pre><code>class CarteBancaire(Paiement):
+    def payer(self):
+        print("Paiement par carte")</code></pre>
+
+        <pre><code>class Paypal(Paiement):
+    def payer(self):
+        print("Paiement via Paypal")</code></pre>
+
+        <pre><code>def effectuer_paiement(moyen):
+    moyen.payer()</code></pre>
+
+        <p class="mt-3 text-lg text-slate-700">
+          👉 Aucun if, aucun test de type
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Pourquoi le polymorphisme est essentiel
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-3 text-xl text-slate-700">
+          <li>Moins de if et elif</li>
+          <li>Code plus propre et lisible</li>
+          <li>Ajout facile de nouvelles fonctionnalités</li>
+          <li>Très utilisé dans les projets professionnels</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Sans polymorphisme, le code devient rigide
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Résumé : Polymorphisme
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Même méthode, comportements différents</li>
+          <li>Fonctionne avec ou sans héritage</li>
+          <li>Python choisit la méthode à exécuter</li>
+          <li>Indispensable en Programmation Orientée Objet</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          🧠 Polymorphisme = flexibilité + élégance
+        </p>
+      </div>
+      <!-- Slide 1 -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Propriétés et méthodes
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Une classe peut contenir deux types d’éléments principaux.
+        </p>
+
+        <ul class="text-lg text-slate-700 space-y-2">
+          <li>✔ Les propriétés stockent des informations</li>
+          <li>✔ Les méthodes définissent des actions</li>
+        </ul>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ Elles peuvent appartenir à un objet ou à la classe elle même
+        </p>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Propriété d’objet
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Une propriété d’objet appartient à chaque instance.
+        </p>
+
+        <pre><code>class Etudiant:
+    def __init__(self, nom):
+        self.nom = nom</code></pre>
+
+        <pre><code>e1 = Etudiant("Ali")
+e2 = Etudiant("Sara")
+
+print(e1.nom)
+print(e2.nom)</code></pre>
+
+        <pre><code># Résultat :
+# Ali
+# Sara</code></pre>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ Chaque objet a sa propre valeur
+        </p>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">Méthode d’objet</h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Une méthode d’objet agit sur les données de l’objet.
+        </p>
+
+        <pre><code>class Etudiant:
+    def dire_nom(self):
+        print(self.nom)</code></pre>
+
+        <pre><code>e = Etudiant("Ali")
+e.dire_nom()</code></pre>
+
+        <pre><code># Résultat :
+# Ali</code></pre>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ Elle utilise self pour accéder à l’objet
+        </p>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Propriété de classe
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Une propriété de classe est partagée par tous les objets.
+        </p>
+
+        <pre><code>class Etudiant:
+    ecole = "ENSA"</code></pre>
+
+        <pre><code>e1 = Etudiant()
+e2 = Etudiant()
+
+print(e1.ecole)
+print(e2.ecole)</code></pre>
+
+        <pre><code># Résultat :
+# ENSA
+# ENSA</code></pre>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ Une seule valeur pour tous
+        </p>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Méthode de classe
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Une méthode de classe agit sur la classe, pas sur un objet précis.
+        </p>
+
+        <pre><code>class Etudiant:
+    ecole = "ENSA"
+
+    @classmethod
+    def changer_ecole(cls, nom):
+        cls.ecole = nom</code></pre>
+
+        <pre><code>Etudiant.changer_ecole("EST")
+print(Etudiant.ecole)</code></pre>
+
+        <pre><code># Résultat :
+# EST</code></pre>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ Elle utilise cls au lieu de self
+        </p>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Quand utiliser quoi
+        </h2>
+
+        <ul class="text-lg text-slate-700 space-y-2">
+          <li>✔ Propriété d’objet : donnée spécifique à chaque objet</li>
+          <li>✔ Méthode d’objet : action liée à un objet</li>
+          <li>✔ Propriété de classe : donnée commune à tous</li>
+          <li>✔ Méthode de classe : logique globale de la classe</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Bon choix = code plus clair et plus propre
+        </p>
+      </div>
+      <!-- ==================== -->
+      <!-- ABSTRACTION (OOP) -->
+      <!-- ==================== -->
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Abstraction : se concentrer sur l’essentiel
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          L’abstraction est un principe de la Programmation Orientée Objet.
+        </p>
+
+        <p class="text-lg text-slate-700 mb-3">Elle consiste à :</p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Montrer uniquement ce qui est utile</li>
+          <li>Cacher les détails compliqués</li>
+          <li>Simplifier l’utilisation d’un objet</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          🎯 Objectif : utiliser sans connaître les détails internes
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Abstraction dans la vie réelle
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">Exemple : une voiture</p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Accélérer</li>
+          <li>Freiner</li>
+          <li>Tourner le volant</li>
+        </ul>
+
+        <p class="text-lg text-slate-700 mt-3">
+          Tu n’as pas besoin de comprendre :
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Le moteur</li>
+          <li>Les calculs mécaniques</li>
+          <li>Les détails techniques</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Tu utilises sans connaître la complexité
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Pourquoi utiliser l’abstraction
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-3 text-xl text-slate-700">
+          <li>Réduire la complexité</li>
+          <li>Faciliter la compréhension</li>
+          <li>Éviter les erreurs</li>
+          <li>Travailler en équipe plus facilement</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Un code abstrait est plus clair et plus propre
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Abstraction en Python idée simple
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          L’abstraction décrit ce qu’un objet doit faire sans dire comment.
+        </p>
+
+        <pre><code>class Animal:
+    def parler(self):
+        pass</code></pre>
+
+        <p class="mt-3 text-lg text-slate-700">
+          Ici on dit seulement qu’un animal doit parler
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Classes abstraites avec abc
+        </h2>
+
+        <p class="text-lg text-slate-700 mb-3">
+          Python fournit le module <code>abc</code> pour créer des classes
+          abstraites.
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>La classe ne peut pas être instanciée</li>
+          <li>Les méthodes abstraites sont obligatoires</li>
+          <li>Les classes enfants doivent les implémenter</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ L’abstraction impose des règles
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Définir une classe abstraite
+        </h2>
+
+        <pre><code>from abc import ABC, abstractmethod
+
+class Animal(ABC):
+
+    @abstractmethod
+    def parler(self):
+        pass</code></pre>
+
+        <p class="mt-3 text-lg text-slate-700">
+          Toute classe enfant doit implémenter la méthode parler
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Classe abstraite non instanciable
+        </h2>
+
+        <pre><code>a = Animal()</code></pre>
+
+        <p class="text-lg text-red-600 font-semibold mt-3">
+          ❌ Erreur : impossible de créer un objet Animal
+        </p>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ Python force le respect de l’abstraction
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Implémentation correcte
+        </h2>
+
+        <pre><code>class Chien(Animal):
+    def parler(self):
+        print("Le chien aboie")</code></pre>
+
+        <pre><code>class Chat(Animal):
+    def parler(self):
+        print("Le chat miaule")</code></pre>
+
+        <pre><code>animaux = [Chien(), Chat()]
+
+for a in animaux:
+    a.parler()</code></pre>
+
+        <p class="mt-3 text-lg text-emerald-600 font-semibold">
+          ✔ Même interface, comportements différents
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Cas réel professionnel
+        </h2>
+
+        <pre><code>from abc import ABC, abstractmethod
+
+class Paiement(ABC):
+
+    @abstractmethod
+    def payer(self, montant):
+        pass</code></pre>
+
+        <pre><code>class CarteBancaire(Paiement):
+    def payer(self, montant):
+        print("Paiement par carte :", montant)</code></pre>
+
+        <pre><code>class Paypal(Paiement):
+    def payer(self, montant):
+        print("Paiement via Paypal :", montant)</code></pre>
+
+        <p class="mt-3 text-lg text-slate-700">
+          Le système utilise payer sans connaître le moyen exact
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Quand utiliser l’abstraction
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-3 text-xl text-slate-700">
+          <li>Quand plusieurs classes partagent un comportement</li>
+          <li>Quand le projet devient grand</li>
+          <li>Quand on veut imposer une structure</li>
+          <li>Quand on sépare le quoi du comment</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          ✔ Abstraction = clarté + robustesse
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">
+          Résumé abstraction
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-2 text-xl text-slate-700">
+          <li>Abstraction cache les détails</li>
+          <li>ABC définit une classe abstraite</li>
+          <li>@abstractmethod impose une méthode</li>
+          <li>Impossible d’instancier une classe abstraite</li>
+          <li>Très utilisée dans les projets professionnels</li>
+        </ul>
+
+        <p class="mt-4 text-lg text-emerald-600 font-semibold">
+          🧠 Abstraction rend le code plus structuré
+        </p>
+      </div>
+
       <!-- Navigation -->
       <div
         id="navigation"
